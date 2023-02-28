@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+
+    <script src="./Rotation.js"></script>
+    <script src="./Rotation_scuba_driver.js"></script>
+
+  </head>
+
+  <body>
+    <a-scene background="color:#026F90">
+
+      <a-entity id="look" look-controls camera position="0 3 20"></a-entity>
+
+      <!--Manejo de recursos-->
+      <a-assets timeout="15000">        
+        <a-asset-item
+          id="sea"
+          src="./island/scene.gltf"
+        ></a-asset-item>
+
+        <a-asset-item
+          id="scuba_drivers"
+          src="./scuba_driver/scene.gltf"
+        ></a-asset-item>
+
+        <a-asset-item
+          id="treasure"
+          src="./treasure/model.gltf"
+        ></a-asset-item>
+
+        <a-asset-item
+          id="turtle"
+          src="./turtle/scene.gltf"
+        ></a-asset-item>
+        
+      </a-assets>
+
+    <a-entity rotacion>
+      <!-- Terreno  -->
+      <a-entity
+        id="terrain"
+        gltf-model="#sea"
+        position="0 0 0"
+        scale="0.3 0.3 0.3"
+        animation="property: position; to: 0 0 1000;easing:linear; loop: true; dur: 2500000">
+      </a-entity>
+
+      <a-entity
+        id="treasures"
+        gltf-model="#treasure"
+        position="0 -3 1"
+        rotation="0 70 0"
+        scale="3 3 3"
+        animation="property: position; to: 0 0 1000;easing:linear; loop: true; dur: 2500000">
+      </a-entity>
+      <a-entity
+        id="treasures1"
+        gltf-model="#treasure"
+        position="-2 -3 1"
+        rotation="0 70 0"
+        scale="3 3 3"
+        animation="property: position; to: 0 0 1000;easing:linear; loop: true; dur: 2500000">
+      </a-entity>
+
+      <a-entity
+        id="tortuga"
+        gltf-model="#turtle"
+        position="-5 1 7"
+        rotation="0 70 0"
+        scale="0.003 0.003 0.003"
+        animation="property: position; to: 0 0 1000;easing:linear; loop: true; dur: 3000000">
+      </a-entity>
+
+    </a-entity>
+
+      <a-entity
+        id="scuba"
+        gltf-model="#scuba_drivers"
+        position="1.2 -0.08 18"
+        scale="0.025 0.025 0.025"
+        rotation="0 90 0"
+        rotation-plane>       
+      </a-entity>
+      
+    </a-scene>
+  </body>
+</html>
